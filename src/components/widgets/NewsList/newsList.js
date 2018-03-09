@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import { URL } from '../../../config';
 import styles from './newsList.css';
+import Button from '../Buttons/button';
 
 
 class NewsList extends Component {
@@ -71,10 +72,12 @@ class NewsList extends Component {
                     className="list"
                 >
                     {this.renderNews( this.props.type)}
-                    <div onClick={()=>{this.loadMore()}}>
-                        Load More
-                    </div>
                 </TransitionGroup>
+                <Button 
+                    type="loadmore"
+                    loadMore={()=>this.loadMore()}
+                    callToAction="Load More News"
+                />
             </div>
         )
     }
