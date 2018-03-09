@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import styles from './button.css';
 
@@ -14,6 +14,15 @@ const buttons = (props) => {
                 >
                     {props.callToAction}
                 </div>
+            )
+            break;
+        case 'linkTo':
+            template = (
+                <Link to={props.linkTo}
+                    className={styles.blue_btn}
+                >
+                    {props.cta}
+                </Link>
             )
             break;
         default:
