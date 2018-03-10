@@ -12,7 +12,7 @@ const buttons = (props) => {
                 <div className={styles.blue_btn}
                     onClick={props.loadMore}
                 >
-                    {props.callToAction}
+                    {props.cta}
                 </div>
             )
             break;
