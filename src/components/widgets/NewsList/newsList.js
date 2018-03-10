@@ -31,10 +31,12 @@ class NewsList extends Component {
                 })
             })
         }
-        axios.get(`${URL}/articles?_start=${this.state.start}&_end=${this.state.end}`)
+        axios.get(`${URL}/articles?_start=${start}&_end=${end}`)
         .then( response => {
             this.setState({
-                items:[...this.state.items,...response.data]
+                items:[...this.state.items,...response.data],
+                start,
+                end
             })
         })
     }
@@ -42,6 +44,7 @@ class NewsList extends Component {
     loadMore = () => {
         let end = this.state.end + this.state.amount;
         this.request(this.state.end,end); 
+
     }
 
     renderNews = (type) => {
@@ -87,7 +90,7 @@ class NewsList extends Component {
                 <Button 
                     type="loadmore"
                     loadMore={()=>this.loadMore()}
-                    callToAction="Load More News"
+                    cta="Load More News"
                 />
             </div>
         )
